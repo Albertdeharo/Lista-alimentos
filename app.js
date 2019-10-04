@@ -41,7 +41,9 @@ var app = new Vue({
           nombre: this.alimentos.nombre,
           cantidad: this.alimentos.cantidad,
         });
-
+        this.alimentos.nombre = '';
+        this.alimentos.tipo = '';
+        this.alimentos.cantidad = '';
       }
     },
   })
