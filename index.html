@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue crud</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+    
+<div class="container">
+        <div id="app">
+                <h1>
+                    {{ titulo }}
+                </h1>
+                
+                <form v-on:submit="agregarAlimento">
+                    Nombre
+                    <input type="text" v-model="alimentos.nombre">
+                    <br>
+                    Tipo
+                    <input type="text" v-model="alimentos.tipo">
+                    <br>
+                    Cantidad
+                    <input type="number" v-model="alimentos.cantidad">
+                    <input type="submit" value="Agregar alimento" class="btn btn-primary btn-block">
+                </form>
+                
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Tipo</th>
+                            <th>Cantidad</th>
+
+                        </tr>
+                
+                    </thead>
+                    <tbody>
+                        <tr v-for="alimento in alimentos">
+                            <td>
+                                    {{ alimento.nombre}}
+                                    
+                            </td>
+                            <td>
+                                    {{ alimento.tipo}}
+                            </td>
+                            <td>
+                                    {{ alimento.cantidad}}
+                            </td>
+                            <td>
+                                <button v-on:click="eliminarAlimento(alimento)" class="btn btn-danger">ELIMINAR</button>
+                            </td>
+                        </tr>
+                
+                    </tbody>
+                </table>
+                
+                </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
